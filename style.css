@@ -1,0 +1,88 @@
+body {
+  background-color: #000;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+}
+
+.images {
+  margin-right: 64px;
+}
+
+.text-content {
+  color: #fff;
+  margin-right: 72px;
+}
+
+#main-image {
+  width: 480px;
+  height: 360px;
+  box-sizing: border-box;
+  border-radius: 3px;
+  object-fit: contain;
+  margin-bottom: 24px;
+  border: 1px solid #343434;
+}
+
+.slide-images {
+  width: 64px;
+  height: 64px;
+  box-sizing: border-box;
+  border-radius: 3px;
+  object-fit: cover;
+  border: 1px solid #343434;
+  margin-right: 24px;
+}
+
+#color-block {
+  color: #000;
+  background-color: #FEDD15;
+  height: 12px;
+}
+
+#resource-description {
+  width: 464px;
+}
+
+#checkout-button {
+  font-size: 18px;
+  padding: 12px 18px;
+  border: #FEDD15 1px solid;
+  border-radius: 3px;
+  display: inline-block;
+  flex-direction: row;
+  margin-right: 36px;
+}
+
+a:link {
+  color: #FEDD15;
+  text-decoration: none;
+}
+
+.checkout-button a {
+/*   border: 1px red dashed; */
+  margin: auto;
+}
+
+#next-button {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  background-color: #FEDD15;
+  border-radius: 32px;
+  top: 144px;
+}
+
+.resource-header {
+  margin-bottom: 24px;
+}
+
+.resource-description {
+  margin-bottom: 36px;
+}
+
+.linked-buttons {
+  display: flex;
+}
