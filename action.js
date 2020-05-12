@@ -17,14 +17,34 @@ function myFunction () {
   document.getElementById("img3").src = plug.img3;
   document.getElementById("like-count").innerHTML = plug.likes;
   replaceMainImg(plug.img1);
+
 }
 
 function replaceMainImg(src) {
-  document.getElementById("main-image").src = src
+  document.getElementById("main-image").src = src;
+}
+
+function replaceMainImg1() {
+  document.getElementById("main-image").src = document.getElementById("img1").src;
+}
+
+function replaceMainImg2() {
+  document.getElementById("main-image").src = document.getElementById("img2").src;
+}
+
+function replaceMainImg3() {
+  document.getElementById("main-image").src = document.getElementById("img3").src;
 }
 
 document.getElementById("next-button").addEventListener("click", myFunction);
+document.getElementById("img1").addEventListener("click", replaceMainImg1);
+document.getElementById("img2").addEventListener("click", replaceMainImg2);
+document.getElementById("img3").addEventListener("click", replaceMainImg3);
 
-document.getElementById("img1").addEventListener("click", replaceMainImg(document.getElementById("img1").src));
-document.getElementById("img2").addEventListener("click", replaceMainImg(document.getElementById("img2").src));
-document.getElementById("img3").addEventListener("click", replaceMainImg(document.getElementById("img3").src));
+// var picList = document.querySelectorAll(".images");
+
+// for(i = 0; i < picList.length; i++) {
+//   picList[i].addEventListener('click', function() {
+//     document.getElementById("main-image").src = picList[i].src
+//   });
+// }
