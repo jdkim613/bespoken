@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.typekit.net/hcg3aaj.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <div class="content">
+      <div class="form-container">
+        <div class="form-breadcrumb">
+          <div class="breadcrumb selected"></div>
+          <div class="breadcrumb"></div>
+          <div class="breadcrumb "></div>
+        </div>
+        <div id="resource-name" class="fill-out">
+
+          <!-- Manipulate #resource-name div for next form entries -->
+
+          <h1 class="form-question">I'm plugged into</h1>
+          <h2 class="form-instruction">Enter name beep bop bibidi bop</h2>
+
+          <form>
+            <input id="resource-name-response" class="entry-box" type="text"></input>
+          </form>
+
+        </div>
+
+        <!-- Next button -->
+        <button id="press-next" class="bespoken-button">
+          <a id="link" href="form.html">Next</a>
+        </button>
+
+      </div>
+    </div>
+    <script src="action.js"></script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="/__/firebase/7.14.3/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+    https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="/__/firebase/7.14.3/firebase-analytics.js"></script>
+
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
+  </body>
+</html>

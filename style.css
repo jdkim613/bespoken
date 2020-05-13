@@ -1,10 +1,36 @@
+@font-face {
+  font-family: "Charter";
+  src: url("fonts/CahrterITC-Regu.otf") format("opentype");
+}
+
 body {
   background-color: #000;
 }
 
+h1 {
+  font-family: "Charter";
+  font-size: 36px;
+  font-weight: 700;
+}
+
+p {
+  font-family: "Charter";
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.2rem;
+}
+
 .content {
+  min-height: 100%;
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px blue dashed; */
+}
+
+.content div {
+  /* border: red 1px dashed; */
 }
 
 .images {
@@ -72,7 +98,6 @@ a:link {
   height: 64px;
   background-color: #FEDD15;
   border-radius: 32px;
-  top: 144px;
 }
 
 .resource-header {
@@ -85,4 +110,96 @@ a:link {
 
 .linked-buttons {
   display: flex;
+}
+
+/* Form CSS */
+.form-container {
+  min-width: 50%;
+  min-height: 480px;
+  padding: 64px 72px;
+  background-color: #000;
+  border-radius: 12px;
+  /* border: 1px red dashed; */
+}
+
+.form-breadcrumb {
+  display: flex;
+  width: 114px;
+  justify-content: space-between;
+  margin-bottom: 72px;
+}
+
+.breadcrumb {
+  height: 14px;
+  width: 14px;
+  border-radius: 3px;
+  background-color: #F2F2F2;
+}
+
+.selected {
+  background-color: #FEDD15 !important;
+}
+
+.form-question, .form-instruction {
+  color: #fff;
+}
+
+.form-question {
+  font-size: 36px;
+}
+
+.form-instruction {
+  font-size: 18px;
+  font-weight: 100;
+}
+
+/* Form Entry */
+.fill-out {
+  margin-bottom: 72px;
+}
+
+.entry-box {
+  width: 100%;
+  padding: 18px 0px;
+  border-radius: 3px;
+  border: none;
+
+  color: #FFF;
+  font-family: "Charter";
+  font-size: 64px;
+
+  background-color: #000;
+  border-bottom: 2px solid #19191B;
+}
+
+input[type=text] {
+  -webkit-transition: 0.3s ease-in;
+  transition: 0.3s;
+  outline: none;
+}
+
+input[type=text]:focus {
+  border-bottom: 2px solid #FEDD15;
+}
+
+.bespoken-button {
+  font-size: 18px;
+  font-family: "Charter";
+  padding: 12px 18px;
+  border: #FEDD15 1px solid;
+  border-radius: 3px;
+  display: inline-block;
+  flex-direction: row;
+  margin-right: 36px;
+  background-color: #FEDD15
+}
+
+.bespoken-button a:link {
+  color: #000;
+  text-decoration: none;
+}
+
+.bespoken-button a:visited {
+  color: #000;
+  text-decoration: none;
 }
