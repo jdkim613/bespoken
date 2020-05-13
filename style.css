@@ -159,7 +159,7 @@ a:link {
 }
 
 .entry-box {
-  width: 100%;
+  width: 75%;
   padding: 18px 0px;
   border-radius: 3px;
   border: none;
@@ -179,7 +179,12 @@ input[type=text] {
 }
 
 input[type=text]:focus {
+  width: 120%;
   border-bottom: 2px solid #FEDD15;
+}
+
+::placeholder {
+  color: #19191B;
 }
 
 .bespoken-button {
