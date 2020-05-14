@@ -1,3 +1,4 @@
+// Index.html code start
 var plug = {
   name: 'JOHN THE MIGHTY',
   link: 'https://www.linkedin.com/in/jdkim613/',
@@ -36,11 +37,6 @@ function replaceMainImg3() {
   document.getElementById("main-image").src = document.getElementById("img3").src;
 }
 
-document.getElementById("next-button").addEventListener("click", myFunction);
-document.getElementById("img1").addEventListener("click", replaceMainImg1);
-document.getElementById("img2").addEventListener("click", replaceMainImg2);
-document.getElementById("img3").addEventListener("click", replaceMainImg3);
-
 // var picList = document.querySelectorAll(".images");
 
 // for(i = 0; i < picList.length; i++) {
@@ -48,3 +44,36 @@ document.getElementById("img3").addEventListener("click", replaceMainImg3);
 //     document.getElementById("main-image").src = picList[i].src
 //   });
 // }
+
+// Index.html code end
+
+
+
+
+
+
+// form.html page start
+var state = 1
+function nextButton() {
+  if(state == 1) {
+    state ++
+    //add elements
+    document.getElementById('resource-name').innerHTML +='<h1 class="form-question">I\'m plugged into</h1><h2 class="form-instruction">Enter name beep bop bibidi bop</h2><form><input id="resource-name-response" class="entry-box" type="text" placeholder="Say something amazing"></input></form>'
+
+  }
+  else if(state == 2) {
+    //add elements
+    state ++
+    document.getElementById('resource-name').innerHTML +='<h1 class="form-question">I\'m plugged into</h1><h2 class="form-instruction">Enter name beep bop bibidi bop</h2><form><input id="resource-name-response" class="entry-box" type="text" placeholder="Say something amazing"></input></form>'
+
+  }
+  else if(state == 3) {
+    //submit information
+  }
+}
+
+
+
+
+
+//for,.html page end
