@@ -58,14 +58,14 @@ function nextButton() {
   if(state == 1) {
     state ++
     //add elements
-    document.getElementById('resource-name').innerHTML +='<h1 class="form-question">I\'m plugged into</h1><h2 class="form-instruction">Enter name beep bop bibidi bop</h2><form><input id="resource-name-response" class="entry-box" type="text" placeholder="Say something amazing"></input></form>'
+    document.getElementById('resource-name').innerHTML +='<h1 class="form-question">You can find them at</h1><h2 class="form-instruction">Enter name beep bop bibidi bop</h2><form><input id="resource-name-response" class="entry-box" type="text" placeholder="Say something amazing"></input></form>'
+    var dotte = document.getElementById('dot-2').classList.add('selected');
 
-  }
-  else if(state == 2) {
+  }else if(state == 2) {
     //add elements
     state ++
-    document.getElementById('resource-name').innerHTML +='<h1 class="form-question">I\'m plugged into</h1><h2 class="form-instruction">Enter name beep bop bibidi bop</h2><form><input id="resource-name-response" class="entry-box" type="text" placeholder="Say something amazing"></input></form>'
-
+    document.getElementById('resource-name').innerHTML +='<h1 class="form-question">I like this resource because</h1><h2 class="form-instruction">Enter name beep bop bibidi bop</h2><form><input id="resource-name-response" class="entry-box" type="text" placeholder="Say something amazing"></input></form>'
+    var dotte = document.getElementById('dot-3').classList.add('selected');
   }
   else if(state == 3) {
     //submit information
