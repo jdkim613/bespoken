@@ -5,12 +5,20 @@
 
 body {
   background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 h1 {
   font-family: "Charter";
   font-size: 36px;
   font-weight: 700;
+}
+
+h2 {
+  font-family: "Charter";
+  font-weight: 200;
 }
 
 p {
@@ -20,14 +28,54 @@ p {
   line-height: 1.2rem;
 }
 
+.hidden {
+  display: none !important;
+}
+
 .content {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 60%;
+  /* border: 1px blue dashed; */
+}
+
+.view-submission {
   min-height: 100%;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+
+/* View Toggle */
+.select-view {
+  position: absolute;
+  top: 10vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 10vw;
+  min-width: 180px;
+  margin-bottom: 72px;
+  align-self: flex-start;
   /* border: 1px blue dashed; */
 }
+
+.view-toggle {
+  font-family: "Charter";
+  font-size: 24px;
+  padding-bottom: 12px;
+  color: #FFF;
+}
+
+.selected {
+  border-bottom: 4px #FEDD15 solid;
+}
+
+
 
 .content div {
   /* border: red 1px dashed; */
@@ -114,7 +162,8 @@ a:link {
 
 /* Form CSS */
 .form-container {
-  min-width: 50%;
+  /* position: absolute; */
+  width: 100%;
   min-height: 480px;
   padding: 64px 72px;
   background-color: #000;
@@ -126,7 +175,7 @@ a:link {
   display: flex;
   width: 114px;
   justify-content: space-between;
-  margin-bottom: 72px;
+  margin-bottom: 36px;
 }
 
 .breadcrumb {
@@ -136,7 +185,7 @@ a:link {
   background-color: #F2F2F2;
 }
 
-.selected {
+.indexAt {
   background-color: #FEDD15 !important;
 }
 
@@ -149,26 +198,39 @@ a:link {
 }
 
 .form-instruction {
-  font-size: 18px;
+  font-size: 24px;
   font-weight: 100;
 }
 
 /* Form Entry */
-.fill-out {
+.resource-submission {
+  display: flex;
+}
+
+.fill-out, .submitted {
   margin-bottom: 72px;
 }
 
+
+
 .entry-box {
-  width: 80%;
+  width: 100%;
   padding: 18px 0px;
   border: none;
 
-  color: #FFF;
+  color: #D1D1D1;
   font-family: "Charter";
   font-size: 64px;
 
   background-color: #000;
   border-bottom: 2px solid #19191B;
+}
+
+#resource-desc-response {
+  font-size: 24px;
+  min-width: 720px;
+  min-height: 360px;
+  padding: 12px;
 }
 
 input[type=text] {
@@ -178,8 +240,19 @@ input[type=text] {
 }
 
 input[type=text]:focus {
-  width: 120%;
+  width: 140%;
   border-bottom: 2px solid #FEDD15;
+}
+
+textarea {
+  -webkit-transition: 0.3s ease-in;
+  transition: 0.3s;
+  border-radius: 4px;
+  outline: none;
+}
+
+textarea:focus {
+  border: 2px solid #FEDD15;
 }
 
 ::placeholder {

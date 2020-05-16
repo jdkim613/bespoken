@@ -8,27 +8,91 @@
 
   <body>
     <div class="content">
+      <div class="select-view">
+        <div id="resource-view" class="view-toggle">View</div>
+        <div id="form-view" class="view-toggle selected">Submit</div>
+      </div>
+
+      <div class="view-submission hidden">
+        <div class="images">
+          <img id="main-image" src="https://assets.libsyn.com/content/53062199?height=250&width=250"></img>
+          <div class="slider-images">
+            <img onclick="replaceMainImg1()" class="slide-images" id="img1" src="https://assets.libsyn.com/content/53062199?height=250&width=250"></img>
+            <img onclick="replaceMainImg2()" class="slide-images" id="img2" src="https://assets.libsyn.com/content/53062199?height=250&width=250"></img>
+            <img onclick="replaceMainImg3()" class="slide-images" id="img3" src="https://assets.libsyn.com/content/53062199?height=250&width=250"></img>
+          </div>
+        </div>
+
+        <div class="text-content">
+          <div class="resource-header">
+            <h1 class="resource-title">I'm plugged into <br><span id="color-block">Feeling Asian Podcast</span></h1>
+          </div>
+          <div id="resource-description">
+            <p>Everyone should check out the new podcast by Feeling Asian. They talk about such interesting stories on what life means as an Asian-American. It’s not the typical, “good grades” and “medical doctor” story. They talk about what it means to be Asian American against the stereotypes. hi Julian
+            </p>
+          </div>
+
+          <div class="linked-buttons">
+            <div id="checkout-button">
+              <a id="link" href="form.html">To Form</a>
+            </div>
+            <div>
+              <p id="like-count">1,209</p>
+            </div>
+          </div>
+        </div>
+
+        <div id="next-button" onclick="myFunction()">
+          <img src=""></img>
+        </div>
+      </div>
+
+
       <div class="form-container">
         <div class="form-breadcrumb">
-          <div id="dot-1" class="breadcrumb selected"></div>
+          <div id="dot-1" class="breadcrumb indexAt"></div>
           <div id="dot-2" class="breadcrumb"></div>
           <div id="dot-3" class="breadcrumb "></div>
         </div>
-        <div id="resource-name" class="fill-out">
 
-          <!-- Manipulate #resource-name div for next form entries -->
+        <div class="resource-submission">
+          <!-- Will be replaced triggered by "press-next" button event -->
+          <div id="resource-name" class="fill-out">
+            <!-- Manipulate #resource-name div for next form entries -->
+            <h1 class="form-question">I'm plugged into</h1>
+            <h2 class="form-instruction"></h2>
+            <form>
+              <input id="resource-name-response" class="entry-box" type="text" placeholder="Say something amazing"></input>
+            </form>
+          </div>
 
-          <h1 class="form-question">I'm plugged into</h1>
-          <h2 class="form-instruction">Enter name beep bop bibidi bop</h2>
+          <div id="resource-link" class="fill-out hidden">
+            <!-- Manipulate #resource-name div for next form entries -->
+            <h1 class="form-question">The link is</h1>
+            <h2 class="form-instruction"></h2>
+            <form>
+              <input id="resource-link-response" class="entry-box" type="text" placeholder="https://"></input>
+            </form>
+          </div>
 
-          <form>
-            <input id="resource-name-response" class="entry-box" type="text" placeholder="Say something amazing"></input>
-          </form>
+          <div id="resource-desc" class="fill-out hidden">
+            <!-- Manipulate #resource-name div for next form entries -->
+            <h1 class="form-question">I love this resource because</h1>
+            <h2 class="form-instruction"></h2>
+            <form>
+              <textarea id="resource-desc-response" class="entry-box" rows="4" placeholder="Why I love"></textarea>
+            </form>
+          </div>
+
+          <div id="thank-you" class="submitted hidden">
+            <h1 class="form-question">Thank You for submitting ❤️</h1>
+            <h2 class="form-instruction">Make sure to click view to checkout what other people wrote us!</h2>
+          </div>
 
         </div>
 
         <!-- Next button -->
-        <button id="press-next" class="bespoken-button" onclick="nextButton()">
+        <button id="press-next" class="bespoken-button">
           <a id="">Next</a>
         </button>
 
@@ -37,13 +101,13 @@
     <script src="action.js"></script>
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="/__/firebase/7.14.3/firebase-app.js"></script>
+    <!-- <script src="/__/firebase/7.14.3/firebase-app.js"></script> -->
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
     https://firebase.google.com/docs/web/setup#available-libraries -->
-    <script src="/__/firebase/7.14.3/firebase-analytics.js"></script>
+    <!-- <script src="/__/firebase/7.14.3/firebase-analytics.js"></script> -->
 
     <!-- Initialize Firebase -->
-    <script src="/__/firebase/init.js"></script>
+    <!-- <script src="/__/firebase/init.js"></script> -->
   </body>
 </html>

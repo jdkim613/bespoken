@@ -53,26 +53,106 @@ function replaceMainImg3() {
 
 
 // form.html page start
-var state = 1
-function nextButton() {
-  if(state == 1) {
-    state ++
-    //add elements
-    document.getElementById('resource-name').innerHTML +='<h1 class="form-question">You can find them at</h1><h2 class="form-instruction">Enter name beep bop bibidi bop</h2><form><input id="resource-name-response" class="entry-box" type="text" placeholder="Say something amazing"></input></form>'
-    var dotte = document.getElementById('dot-2').classList.add('selected');
+var formState = 1
+// function nextInput() {
+//   if(formState == 1) {
+//     formState ++
+//     //add elements
+//     document.getElementById('resource-name').innerHTML +='<h1 class="form-question">You can find them at</h1><h2 class="form-instruction">Enter name beep bop bibidi bop</h2><form><input id="resource-name-response" class="entry-box" type="text" placeholder="Say something amazing"></input></form>'
+//     var dotte = document.getElementById('dot-2').classList.add('selected');
+//
+//   }else if(formState == 2) {
+//     //add elements
+//     formState ++
+//     document.getElementById('resource-name').innerHTML +='<h1 class="form-question">I like this resource because</h1><h2 class="form-instruction">Enter name beep bop bibidi bop</h2><form><input id="resource-name-response" class="entry-box" type="text" placeholder="Say something amazing"></input></form>'
+//     var dotte = document.getElementById('dot-3').classList.add('selected');
+//   }
+//   else if(formState == 3) {
+//     //submit information
+//   }
+// }
 
-  }else if(state == 2) {
-    //add elements
-    state ++
-    document.getElementById('resource-name').innerHTML +='<h1 class="form-question">I like this resource because</h1><h2 class="form-instruction">Enter name beep bop bibidi bop</h2><form><input id="resource-name-response" class="entry-box" type="text" placeholder="Say something amazing"></input></form>'
-    var dotte = document.getElementById('dot-3').classList.add('selected');
+$('#press-next').on('click', function() {
+
+  console.log("formState is at " + formState);
+
+  if(formState == 1) {
+
+    // Toggle new question
+    $('#resource-name').toggleClass('hidden');
+    $('#resource-link').toggleClass('hidden');
+
+    // Move dot to next index
+    $('#dot-2').toggleClass('indexAt');
+
+    formState++; // move formState to next index
+
+    // Grab the response from question 1
+
+  } else if(formState == 2) {
+
+    // Toggle new question
+    $('#resource-link').toggleClass('hidden');
+    $('#resource-desc').toggleClass('hidden');
+
+    // Move dot to next index
+    $('#dot-3').toggleClass('indexAt');
+
+    $('#press-next').text('Submit'); // change the button text
+
+    formState++;// move formState to next index
+
+     // Grab the response from question 2
+
+  } else if(formState == 3) {
+
+    // Toggle new question
+    $('#resource-desc').toggleClass('hidden');
+    $('#thank-you').toggleClass('hidden');
+    $('#press-next').text('Submit Another'); // change the button text
+
+    // Grab the response from question 3
+
+    // Grab all the response from all the questions and upload to Firebase
+
+    formState++;// move formState to next index
+  } else if (formState == 4) {
+
+    // Clear all form responses
+
+    // restart the form from beginning
+
   }
-  else if(state == 3) {
-    //submit information
-  }
-}
 
+})
 
+$('.select-view div').on('click', function() {
+
+  console.log('select is clicked');
+
+  // "View" is clicked
+  $('#resource-view').on('click', function() {
+    $('.view-submission').removeClass('hidden');
+    $('.form-container').addClass('hidden');
+
+    $('#resource-view').addClass('selected');
+    $('#form-view').removeClass('selected');
+
+    console.log('view is clicked');
+  });
+
+  // "Submit" is clicked
+  $('#form-view').on('click', function() {
+    $('.form-container').removeClass('hidden');
+    $('.view-submission').addClass('hidden');
+
+    $('#resource-view').removeClass('selected');
+    $('#form-view').addClass('selected');
+
+    console.log('submit is clicked');
+  });
+
+})
 
 
 
