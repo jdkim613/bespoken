@@ -472,6 +472,11 @@ textarea:focus {
 
   #next-button {
     margin-top: 8vh;
+    background-color: #000;
+    border: 2px #FFF solid;
+  }
+
+  #next-button:hover {
   }
 
   /* Mobile Form */
