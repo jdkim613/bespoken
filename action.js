@@ -126,6 +126,12 @@ $('#press-next').on('click', function() {
 
     // Clear all form responses
 
+    // Move all to first index
+    $('#thank-you').toggleClass('hidden');
+    $('#resource-name').toggleClass('hidden');
+    $('#press-next').text('Next'); // change button text
+    formState = 1; // reset index to 1
+
     // restart the form from beginning
 
   }

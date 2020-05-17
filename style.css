@@ -178,7 +178,7 @@ body {
 }
 
 .form-container div {
-  border: 1px red dashed;
+  /* border: 1px red dashed; */
 }
 
 .fill-out, .submitted {
@@ -363,12 +363,14 @@ textarea:focus {
   /* Mobile Containers */
   .content {
     border: 1px yellow dashed;
+
   }
 
   .select-view {
     min-width: 180px;
-    top: 10vh;
+    top: 8vh;
     left: 10vw;
+    /* margin-bottom: 40vh; */
     border: 1px blue dashed;
   }
 
@@ -379,7 +381,8 @@ textarea:focus {
     width: 80vw;
     min-height: 60vh;
     padding: 0px;
-    border: 2px pink dashed;
+    margin-top: 10vh;
+    /* border: 2px pink dashed; */
   }
 
   .form-breadcrumb {
@@ -391,7 +394,7 @@ textarea:focus {
   }
 
   .form-instruction {
-    font-size: 1.2px;
+    font-size: 1rem;
   }
 
   .entry-box {
