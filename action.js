@@ -72,6 +72,7 @@ var formState = 1
 //   }
 // }
 
+
 $('#press-next').on('click', function() {
 
   console.log("formState is at " + formState);
@@ -79,8 +80,8 @@ $('#press-next').on('click', function() {
   if(formState == 1) {
 
     // Toggle new question
-    $('#resource-name').toggleClass('hidden');
-    $('#resource-link').toggleClass('hidden');
+    $('#resource-name').toggleClass('hidden', 1500, "easeOutSine");
+    $('#resource-link').toggleClass('hidden', 1500, "easeOutSine");
 
     // Show back button
     $('#press-back').toggleClass('hidden');
