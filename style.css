@@ -90,6 +90,10 @@ body {
   /* border: 1px blue dashed; */
 }
 
+.select-view div {
+  cursor: pointer;
+}
+
 .view-toggle {
   font-family: "Charter";
   font-size: 24px;
@@ -229,17 +233,6 @@ body {
   border-bottom: 2px solid #19191B;
 }
 
-input[type=text] {
-  -webkit-transition: 0.3s ease-in;
-  transition: 0.3s;
-  outline: none;
-}
-
-input[type=text]:focus {
-  width: 140%;
-  border-bottom: 2px solid #FEDD15;
-}
-
 textarea {
   -webkit-transition: 0.3s ease-in;
   transition: 0.3s;
@@ -255,6 +248,20 @@ textarea:focus {
   color: #19191B;
 }
 
+.move-buttons {
+  height: 10vh;
+  /* display: flex; */
+  margin: auto;
+  top: 5px;
+  /* border: 1px red dashed; */
+}
+
+.bespoken-button, .bespoken-button-2 {
+  cursor: pointer;
+  position: relative;
+  top: 3px;
+}
+
 .bespoken-button {
   font-size: 18px;
   font-family: "Charter";
@@ -264,7 +271,14 @@ textarea:focus {
   display: inline-block;
   flex-direction: row;
   margin-right: 36px;
-  background-color: #FEDD15
+  background-color: #FEDD15;
+
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+
+.bespoken-button:hover {
+  top: 0px;
 }
 
 .bespoken-button-2 {
@@ -346,6 +360,17 @@ textarea:focus {
     padding: 12px;
   }
 
+  input[type=text] {
+    -webkit-transition: 0.3s ease-in;
+    transition: 0.3s;
+    outline: none;
+  }
+
+  input[type=text]:focus {
+    width: 140%;
+    border-bottom: 2px solid #FEDD15;
+  }
+
 }
 
 /* Mobile View */
@@ -371,7 +396,7 @@ textarea:focus {
     top: 8vh;
     left: 10vw;
     /* margin-bottom: 40vh; */
-    border: 1px blue dashed;
+    /* border: 1px blue dashed; */
   }
 
   /* Mobile Content */
@@ -400,6 +425,16 @@ textarea:focus {
   .entry-box {
     width: 100%;
     font-size: 2rem;
+  }
+
+  input[type=text] {
+    -webkit-transition: 0.3s ease-in;
+    transition: 0.3s;
+    outline: none;
+  }
+
+  input[type=text]:focus {
+    border-bottom: 2px solid #FEDD15;
   }
 
   #resource-desc-response {
