@@ -82,6 +82,9 @@ $('#press-next').on('click', function() {
     $('#resource-name').toggleClass('hidden');
     $('#resource-link').toggleClass('hidden');
 
+    // Show back button
+    $('#press-back').toggleClass('hidden');
+
     // Move dot to next index
     $('#dot-2').toggleClass('indexAt');
 
@@ -111,6 +114,9 @@ $('#press-next').on('click', function() {
     $('#thank-you').toggleClass('hidden');
     $('#press-next').text('Submit Another'); // change the button text
 
+    // Hide back button
+    $('#press-back').toggleClass('hidden');
+
     // Grab the response from question 3
 
     // Grab all the response from all the questions and upload to Firebase
@@ -121,6 +127,40 @@ $('#press-next').on('click', function() {
     // Clear all form responses
 
     // restart the form from beginning
+
+  }
+
+})
+
+// press-back button
+$('#press-back').on('click', function() {
+
+  if(formState == 2) {
+
+    // Toggle new question
+    $('#resource-name').toggleClass('hidden');
+    $('#resource-link').toggleClass('hidden');
+
+    // Hide back button
+    $('#press-back').toggleClass('hidden');
+
+    // Move dot to prev index
+    $('#dot-2').toggleClass('indexAt');
+
+    formState--; // move formState to prev index
+
+  } else if(formState == 3) {
+
+    // Toggle prev question
+    $('#resource-link').toggleClass('hidden');
+    $('#resource-desc').toggleClass('hidden');
+
+    // Move dot to prev index
+    $('#dot-3').toggleClass('indexAt');
+
+    $('#press-next').text('Next'); // change the button text
+
+    formState--;// move formState to prev index
 
   }
 
@@ -154,6 +194,6 @@ $('.select-view div').on('click', function() {
 
 })
 
-
+// Responsive display
 
 //for,.html page end

@@ -1,18 +1,54 @@
+/*-------------------------------------------*\
+   Index of CSS Documentation
+
+   - Global
+     - Styles
+     - Type System
+     - Containers
+       - view-submission
+       - submit-form
+   - Web View
+     - Styles
+     - Type System
+     - Containers
+       - view-submission
+       - submit-form
+   - Mobile View
+     - Styles
+     - Type System
+     - Containers
+       - view-submission
+       - submit-form
+
+\*-------------------------------------------*/
+
+/* Global Style*/
 @font-face {
   font-family: "Charter";
   src: url("fonts/CahrterITC-Regu.otf") format("opentype");
 }
 
-body {
-  background-color: #000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.hidden {
+  display: none !important;
 }
 
+.selected {
+  border-bottom: 4px #FEDD15 solid;
+}
+
+a:link {
+  color: #FEDD15;
+  text-decoration: none;
+}
+
+body, div {
+  /* border: 1px red dashed; */
+  /* border: none !important; */
+}
+
+/* Global Type System */
 h1 {
   font-family: "Charter";
-  font-size: 36px;
   font-weight: 700;
 }
 
@@ -23,13 +59,17 @@ h2 {
 
 p {
   font-family: "Charter";
-  font-size: 16px;
   font-weight: 300;
   line-height: 1.2rem;
 }
 
-.hidden {
-  display: none !important;
+/* Global Containers */
+body {
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px red dashed; */
 }
 
 .content {
@@ -38,29 +78,15 @@ p {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-width: 60%;
-  /* border: 1px blue dashed; */
-}
-
-.view-submission {
-  min-height: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  /* border: 1px red dashed; */
 }
 
 /* View Toggle */
 .select-view {
   position: absolute;
-  top: 10vh;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 10vw;
-  min-width: 180px;
-  margin-bottom: 72px;
-  align-self: flex-start;
   /* border: 1px blue dashed; */
 }
 
@@ -71,23 +97,17 @@ p {
   color: #FFF;
 }
 
-.selected {
-  border-bottom: 4px #FEDD15 solid;
-}
-
-
-
-.content div {
-  /* border: red 1px dashed; */
+/* Submission Container */
+.view-submission {
+  min-height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .images {
   margin-right: 64px;
-}
-
-.text-content {
-  color: #fff;
-  margin-right: 72px;
 }
 
 #main-image {
@@ -110,6 +130,15 @@ p {
   margin-right: 24px;
 }
 
+.text-content {
+  color: #fff;
+  margin-right: 72px;
+}
+
+.resource-header {
+  margin-bottom: 24px;
+}
+
 #color-block {
   color: #000;
   background-color: #FEDD15;
@@ -118,26 +147,16 @@ p {
 
 #resource-description {
   width: 464px;
+  margin-bottom: 36px;
+}
+
+.linked-buttons {
+  display: flex;
 }
 
 #checkout-button {
-  font-size: 18px;
-  padding: 12px 18px;
-  border: #FEDD15 1px solid;
-  border-radius: 3px;
   display: inline-block;
-  flex-direction: row;
   margin-right: 36px;
-}
-
-a:link {
-  color: #FEDD15;
-  text-decoration: none;
-}
-
-.checkout-button a {
-/*   border: 1px red dashed; */
-  margin: auto;
 }
 
 #next-button {
@@ -148,27 +167,22 @@ a:link {
   border-radius: 32px;
 }
 
-.resource-header {
-  margin-bottom: 24px;
-}
-
-.resource-description {
-  margin-bottom: 36px;
-}
-
-.linked-buttons {
-  display: flex;
-}
-
-/* Form CSS */
+/* Form Container */
 .form-container {
-  /* position: absolute; */
   width: 100%;
   min-height: 480px;
   padding: 64px 72px;
   background-color: #000;
   border-radius: 12px;
   /* border: 1px red dashed; */
+}
+
+.form-container div {
+  border: 1px red dashed;
+}
+
+.fill-out, .submitted {
+  margin-bottom: 72px;
 }
 
 .form-breadcrumb {
@@ -189,30 +203,19 @@ a:link {
   background-color: #FEDD15 !important;
 }
 
-.form-question, .form-instruction {
-  color: #fff;
-}
-
-.form-question {
-  font-size: 36px;
-}
-
-.form-instruction {
-  font-size: 24px;
-  font-weight: 100;
-}
-
-/* Form Entry */
 .resource-submission {
   display: flex;
 }
 
-.fill-out, .submitted {
-  margin-bottom: 72px;
+.form-question, .form-instruction {
+  color: #fff;
 }
 
+.form-instruction {
+  font-weight: 100;
+}
 
-
+/* Form Entry */
 .entry-box {
   width: 100%;
   padding: 18px 0px;
@@ -224,13 +227,6 @@ a:link {
 
   background-color: #000;
   border-bottom: 2px solid #19191B;
-}
-
-#resource-desc-response {
-  font-size: 24px;
-  min-width: 720px;
-  min-height: 360px;
-  padding: 12px;
 }
 
 input[type=text] {
@@ -271,7 +267,28 @@ textarea:focus {
   background-color: #FEDD15
 }
 
-.bespoken-button a:link {
+.bespoken-button-2 {
+  color: #FFF;
+  font-size: 18px;
+  font-family: "Charter";
+  padding: 12px 18px;
+  border: #FFF 1px solid;
+  border-radius: 3px;
+  display: inline-block;
+  flex-direction: row;
+  margin-right: 24px;
+  background-color: #000;
+
+  -webkit-transition: 0.15s ease-in-out;
+  transition: 0.15s ease-in-out;
+}
+
+.bespoken-button-2:hover {
+  color: #000;
+  background-color: #FFF;
+}
+
+.bespoken-button a, .bespoken-button-2 a.:link {
   color: #000;
   text-decoration: none;
 }
@@ -279,4 +296,114 @@ textarea:focus {
 .bespoken-button a:visited {
   color: #000;
   text-decoration: none;
+}
+
+/* Website View */
+@media screen and (min-width: 480px) {
+
+  /* Web Type System */
+  h1 {
+    font-size: 36px;
+  }
+
+  h2 {
+
+  }
+
+  p {
+    font-size: 16px;
+  }
+
+  /* Web Containers */
+  body {
+
+  }
+
+  .select-view {
+    top: 10vh;
+    left: 20vw;
+    width: 10vw;
+    min-width: 180px;
+    margin-bottom: 72px;
+    /* border: 1px blue dashed; */
+  }
+
+  /* Web Content */
+
+  /* Web Form */
+  .form-question {
+    font-size: 36px;
+  }
+
+  .form-instruction {
+    font-size: 24px;
+  }
+
+  #resource-desc-response {
+    font-size: 24px;
+    min-width: 600px;
+    min-height: 240px;
+    padding: 12px;
+  }
+
+}
+
+/* Mobile View */
+@media screen and (max-width: 479px) {
+
+  /* Mobile Type System */
+  h1 {
+    font-size: 2.25rem
+  }
+
+  body {
+
+  }
+
+  /* Mobile Containers */
+  .content {
+    border: 1px yellow dashed;
+  }
+
+  .select-view {
+    min-width: 180px;
+    top: 10vh;
+    left: 10vw;
+    border: 1px blue dashed;
+  }
+
+  /* Mobile Content */
+
+  /* Mobile Form */
+  .form-container {
+    width: 80vw;
+    min-height: 60vh;
+    padding: 0px;
+    border: 2px pink dashed;
+  }
+
+  .form-breadcrumb {
+    display: none;
+  }
+
+  .form-question {
+    font-size: 1.5rem;
+  }
+
+  .form-instruction {
+    font-size: 1.2px;
+  }
+
+  .entry-box {
+    width: 100%;
+    font-size: 2rem;
+  }
+
+  #resource-desc-response {
+    /* position: relative; */
+    font-size: 1.2rem;
+    max-width: 100%;
+    height: 20vh;
+    padding: 12px;
+  }
 }
