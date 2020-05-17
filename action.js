@@ -1,23 +1,64 @@
-// Index.html code start
-var plug = {
-  name: 'JOHN THE MIGHTY',
-  link: 'https://www.linkedin.com/in/jdkim613/',
-  desc: "Sed ultrices tortor ut justo efficitur semper. In ut magna et nibh fringilla vestibulum. Aliquam vehicula nunc eu dui maximus, id interdum enim luctus. Donec sit amet blandit lectus. Nulla nec metus felis. Suspendisse congue pharetra nibh in mollis. Quisque at turpis eu lorem luctus venenatis. Duis convallis viverra neque. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Morbi at tellus sem. Nunc tincidunt ex ut magna euismod, imperdiet imperdiet diam egestas. Praesent rutrum ligula ipsum, at condimentum orci molestie at. Cras fringilla risus ac lorem vestibulum, varius blandit dui feugiat.",
-  img1: 'https://scontent-sea1-1.xx.fbcdn.net/v/t1.0-9/68896372_10206129791039172_3056380611385098240_n.jpg?_nc_cat=108&_nc_sid=09cbfe&_nc_ohc=XTYvpKZfVR4AX_EID32&_nc_ht=scontent-sea1-1.xx&oh=b4fadacf1be04362660b2830390d14d7&oe=5EDBE8EA',
-  img2: 'https://scontent-sea1-1.xx.fbcdn.net/v/t1.0-9/64888247_10205915560963554_6729213588092747776_o.jpg?_nc_cat=111&_nc_sid=174925&_nc_ohc=paUEm_yEqawAX84HTXK&_nc_ht=scontent-sea1-1.xx&oh=125657ea5d446e1e01575d7c0746b015&oe=5EDF3467',
-  img3: 'https://scontent-sea1-1.xx.fbcdn.net/v/t1.0-9/64207100_10205905437190466_7293496905521168384_n.jpg?_nc_cat=111&_nc_sid=174925&_nc_ohc=3WdXRd4vMPgAX-WJhJz&_nc_ht=scontent-sea1-1.xx&oh=3e51ae78eb80dba2696b27aad4d18d46&oe=5EDC8BE6',
-  likes: 9001
+///////////////////////////////
+//Firebase stuff. Don't touch//
+///////////////////////////////
+
+var firebaseConfig = {
+  apiKey: "AIzaSyCEm64RK1USSE_47lHbJGhe_jXmCDzR6H0",
+  authDomain: "bespoken-plugged-in.firebaseapp.com",
+  databaseURL: "https://bespoken-plugged-in.firebaseio.com",
+  projectId: "bespoken-plugged-in",
+  storageBucket: "bespoken-plugged-in.appspot.com",
+  messagingSenderId: "200029564567",
+  appId: "1:200029564567:web:007ac92f65deead5b503d2",
+  measurementId: "", //probaly don't need this unless you want to do some google analytics
+};
+
+firebase.initializeApp(firebaseConfig);
+
+// Get a reference to the database service
+var database = firebase.database();
+
+
+//preloads ALL of the firebase information
+var ref = firebase.database().ref('project');
+var allData;
+var allDataSize;
+ref.on("value", function(snapshot) {
+  allData = snapshot.val();
+  allDataSize = Object.keys(allData).length;
+}, function (error) {
+  console.log("Error: " + error.code);
+});
+
+
+function writeToFirebase(name, link, desc) {
+  var fbRef = database.ref("project/" + name);//put in name of project
+  var info = fbRef.set({
+    name: name,
+    link: link,
+    desc: desc,
+    likes: 0,
+  });
 }
 
-function myFunction () {
-  document.getElementById("color-block").innerHTML = plug.name;
-  document.getElementById("resource-description").innerHTML = "<p>" + plug.desc + "</p>";
-  document.getElementById("link").href = plug.link;
-  document.getElementById("img1").src = plug.img1;
-  document.getElementById("img2").src = plug.img2;
-  document.getElementById("img3").src = plug.img3;
-  document.getElementById("like-count").innerHTML = plug.likes;
-  replaceMainImg(plug.img1);
+function getRandSnapshot() {
+  var keys = Object.keys(allData);
+  var key = keys[Math.floor(Math.random() * Math.floor(keys.length))]
+  console.log(key);
+  return key;
+}
+
+function writeFromFirebase () {
+  var snapshot = allData[getRandSnapshot()];
+  console.log(snapshot);
+  document.getElementById("color-block").innerHTML = snapshot.name;
+  document.getElementById("resource-description").innerHTML = "<p>" + snapshot.desc + "</p>";
+  document.getElementById("link").href = snapshot.link;
+  // document.getElementById("img1").src = plug.img1;
+  // document.getElementById("img2").src = plug.img2;
+  // document.getElementById("img3").src = plug.img3;
+  document.getElementById("like-count").innerHTML = snapshot.likes;
+  // replaceMainImg(plug.img1);
 
 }
 
@@ -37,40 +78,8 @@ function replaceMainImg3() {
   document.getElementById("main-image").src = document.getElementById("img3").src;
 }
 
-// var picList = document.querySelectorAll(".images");
 
-// for(i = 0; i < picList.length; i++) {
-//   picList[i].addEventListener('click', function() {
-//     document.getElementById("main-image").src = picList[i].src
-//   });
-// }
-
-// Index.html code end
-
-
-
-
-
-
-// form.html page start
 var formState = 1
-// function nextInput() {
-//   if(formState == 1) {
-//     formState ++
-//     //add elements
-//     document.getElementById('resource-name').innerHTML +='<h1 class="form-question">You can find them at</h1><h2 class="form-instruction">Enter name beep bop bibidi bop</h2><form><input id="resource-name-response" class="entry-box" type="text" placeholder="Say something amazing"></input></form>'
-//     var dotte = document.getElementById('dot-2').classList.add('selected');
-//
-//   }else if(formState == 2) {
-//     //add elements
-//     formState ++
-//     document.getElementById('resource-name').innerHTML +='<h1 class="form-question">I like this resource because</h1><h2 class="form-instruction">Enter name beep bop bibidi bop</h2><form><input id="resource-name-response" class="entry-box" type="text" placeholder="Say something amazing"></input></form>'
-//     var dotte = document.getElementById('dot-3').classList.add('selected');
-//   }
-//   else if(formState == 3) {
-//     //submit information
-//   }
-// }
 
 
 $('#press-next').on('click', function() {
@@ -91,8 +100,6 @@ $('#press-next').on('click', function() {
 
     formState++; // move formState to next index
 
-    // Grab the response from question 1
-
   } else if(formState == 2) {
 
     // Toggle new question
@@ -106,8 +113,6 @@ $('#press-next').on('click', function() {
 
     formState++;// move formState to next index
 
-     // Grab the response from question 2
-
   } else if(formState == 3) {
 
     // Toggle new question
@@ -118,9 +123,12 @@ $('#press-next').on('click', function() {
     // Hide back button
     $('#press-back').toggleClass('hidden');
 
-    // Grab the response from question 3
+    // Grab the response from questions 1 2 and 3 and upload to firebase
+    var resName = document.getElementById('resource-name-response').value;
+    var resLink = document.getElementById('resource-link-response').value;
+    var resDesc = document.getElementById('resource-desc-response').value;
 
-    // Grab all the response from all the questions and upload to Firebase
+    writeToFirebase(resName, resLink, resDesc);
 
     formState++;// move formState to next index
   } else if (formState == 4) {
@@ -134,7 +142,9 @@ $('#press-next').on('click', function() {
     formState = 1; // reset index to 1
 
     // restart the form from beginning
-
+    document.getElementById('resource-name-response').value = "";
+    document.getElementById('resource-link-response').value = "";
+    document.getElementById('resource-desc-response').value = "";
   }
 
 })
@@ -164,9 +174,7 @@ $('#press-back').on('click', function() {
 
     // Move dot to prev index
     $('#dot-3').toggleClass('indexAt');
-
     $('#press-next').text('Next'); // change the button text
-
     formState--;// move formState to prev index
 
   }
