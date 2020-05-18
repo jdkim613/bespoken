@@ -371,7 +371,7 @@ textarea:focus {
   .content {
     max-height: 60vh;
     min-width: 50vw;
-    border: 1px blue dashed;
+    /* border: 1px blue dashed; */
   }
 
   .images {
