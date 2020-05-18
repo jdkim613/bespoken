@@ -20,7 +20,7 @@ var database = firebase.database();
 
 
 //preloads ALL of the firebase information
-var ref = firebase.database().ref('project');
+var ref = firebase.database().ref('plug');
 var allData;
 var allDataSize;
 ref.on("value", function(snapshot) {
@@ -32,12 +32,12 @@ ref.on("value", function(snapshot) {
 
 
 function writeToFirebase(name, link, desc) {
-  var fbRef = database.ref("project/" + name);//put in name of project
+  var fbRef = database.ref("plug/" + name);//put in name of project
   var info = fbRef.set({
     name: name,
     link: link,
     desc: desc,
-    likes: 0,
+    likes: 1,
   });
 }
 
