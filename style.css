@@ -149,11 +149,15 @@ body {
 
 .linked-buttons {
   display: flex;
+  /* border: 1px lightblue dashed; */
 }
 
 #checkout-button {
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   margin-right: 36px;
+  /* border: 1px lightgreen dashed; */
 }
 
 #next-button {
@@ -164,6 +168,10 @@ body {
   border-radius: 36px;
   border: 2px #FFF solid;
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   -webkit-transition: 0.15s ease-in-out;
   transition: 0.15s ease-in-out;
 }
@@ -171,6 +179,12 @@ body {
 #next-button:hover {
   color: #000;
   background-color: #FFF;
+}
+
+#next-icon {
+  width: 24px;
+  height: 24px;
+  /* background-color: #FFF; */
 }
 
 /* Form Container */
@@ -354,6 +368,12 @@ textarea:focus {
   }
 
   /* Web Content */
+  .content {
+    max-height: 60vh;
+    min-width: 50vw;
+    border: 1px blue dashed;
+  }
+
   .images {
     margin-right: 64px;
   }
@@ -432,7 +452,7 @@ textarea:focus {
   /* Mobile Content */
   .view-submission {
     flex-direction: column;
-    margin-top: 20vh;
+    /* margin-top: 20vh; */
     justify-content: center;
     align-content: center;
     /* border: 1px red dashed; */
@@ -479,7 +499,7 @@ textarea:focus {
   }
 
   #next-button {
-    margin-top: 8vh;
+    /* margin-top: 8vh; */
     background-color: #000;
     border: 2px #FFF solid;
   }

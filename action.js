@@ -57,7 +57,7 @@ function writeFromFirebase () {
   // document.getElementById("img1").src = plug.img1;
   // document.getElementById("img2").src = plug.img2;
   // document.getElementById("img3").src = plug.img3;
-  document.getElementById("like-count").innerHTML = snapshot.likes;
+  // document.getElementById("like-count").innerHTML = snapshot.likes; // deleted like feature
   // replaceMainImg(plug.img1);
 
 }
@@ -102,6 +102,8 @@ $('#press-next').on('click', function() {
   console.log("formState is at " + formState);
 
   if(formState == 1) {
+
+    $('#dot-1').addClass('indexAt');
 
     // Check if the response form is empty
     if(!$('#resource-name-response').val()) {
@@ -207,6 +209,9 @@ $('#press-next').on('click', function() {
     $('#press-next').text('Next'); // change button text
     formState = 1; // reset index to 1
 
+    $('#dot-2').toggleClass('indexAt');
+    $('#dot-3').toggleClass('indexAt');
+
     // restart the form from beginning
     document.getElementById('resource-name-response').value = "";
     document.getElementById('resource-link-response').value = "";
@@ -251,29 +256,31 @@ $('.select-view div').on('click', function() {
 
   console.log('select is clicked');
 
-  // "View" is clicked
-  $('#resource-view').on('click', function() {
-    $('.view-submission').removeClass('hidden');
-    $('.form-container').addClass('hidden');
-
-    $('#resource-view').addClass('selected');
-    $('#form-view').removeClass('selected');
-
-    console.log('view is clicked');
-  });
-
-  // "Submit" is clicked
-  $('#form-view').on('click', function() {
-    $('.form-container').removeClass('hidden');
-    $('.view-submission').addClass('hidden');
-
-    $('#resource-view').removeClass('selected');
-    $('#form-view').addClass('selected');
-
-    console.log('submit is clicked');
-  });
 
 })
+
+// "View" is clicked
+$('#resource-view').on('click', function() {
+  $('.view-submission').removeClass('hidden');
+  $('.form-container').addClass('hidden');
+
+  $('#resource-view').addClass('selected');
+  $('#form-view').removeClass('selected');
+
+  console.log('view is clicked');
+});
+
+// "Submit" is clicked
+$('#form-view').on('click', function() {
+  $('.form-container').removeClass('hidden');
+  $('.view-submission').addClass('hidden');
+
+  $('#resource-view').removeClass('selected');
+  $('#form-view').addClass('selected');
+
+  console.log('submit is clicked');
+});
+
 
 // Responsive display
 

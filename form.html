@@ -9,20 +9,20 @@
   <body>
     <div class="content">
       <div class="select-view">
-        <div id="resource-view" class="view-toggle">View</div>
-        <div id="form-view" class="view-toggle selected">Submit</div>
+        <div id="resource-view" class="view-toggle selected">View</div>
+        <div id="form-view" class="view-toggle">Submit</div>
       </div>
 
       <!-- View Content -->
-      <div class="view-submission hidden">
-        <div class="images">
+      <div class="view-submission">
+        <!-- <div class="images">
           <img id="main-image" src="https://assets.libsyn.com/content/53062199?height=250&width=250"></img>
           <div class="slider-images">
             <img onclick="replaceMainImg1()" class="slide-images" id="img1" src="https://assets.libsyn.com/content/53062199?height=250&width=250"></img>
             <img onclick="replaceMainImg2()" class="slide-images" id="img2" src="https://assets.libsyn.com/content/53062199?height=250&width=250"></img>
             <img onclick="replaceMainImg3()" class="slide-images" id="img3" src="https://assets.libsyn.com/content/53062199?height=250&width=250"></img>
           </div>
-        </div>
+        </div> -->
 
         <div class="text-content">
           <div class="resource-header">
@@ -39,20 +39,16 @@
                 <a id="link" target="_blank" rel="noopener noreferrer" href="https://podcasts.apple.com/us/podcast/feeling-asian/id1481891689">Learn More</a>
               </button>
             </div>
-            <div>
-              <p id="like-count">1,209</p>
+            <div id="next-button" onclick="writeFromFirebase()">
+              <img id="next-icon" src="assets/next.png"></img>
             </div>
           </div>
-        </div>
-
-        <div id="next-button" onclick="writeFromFirebase()">
-          <img src=""></img>
         </div>
       </div>
 
 
       <!-- Form  -->
-      <div class="form-container">
+      <div class="form-container hidden">
         <div class="form-breadcrumb">
           <div id="dot-1" class="breadcrumb indexAt"></div>
           <div id="dot-2" class="breadcrumb"></div>
