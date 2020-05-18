@@ -81,6 +81,21 @@ function replaceMainImg3() {
 
 var formState = 1
 
+// remove errorState
+$('.entry-box').on('click', function() {
+  $(this).removeClass('errorState');
+});
+
+// check if the form response is a url
+function isValidUrl(string) {
+  try {
+    new URL(string);
+  } catch (_) {
+    return false;
+  }
+
+  return true;
+};
 
 $('#press-next').on('click', function() {
 
@@ -88,49 +103,100 @@ $('#press-next').on('click', function() {
 
   if(formState == 1) {
 
-    // Toggle new question
-    $('#resource-name').toggleClass('hidden', 1500, "easeOutSine");
-    $('#resource-link').toggleClass('hidden', 1500, "easeOutSine");
+    // Check if the response form is empty
+    if(!$('#resource-name-response').val()) {
 
-    // Show back button
-    $('#press-back').toggleClass('hidden');
+      $('.entry-box').addClass('errorState');
+      console.log('The form is empty!');
 
-    // Move dot to next index
-    $('#dot-2').toggleClass('indexAt');
+      // if the response is not empty
+    } else {
 
-    formState++; // move formState to next index
+      console.log('The form is not empty')
+      $('.entry-box').removeClass('errorState'); // remove the errorState
+
+      // Toggle new question
+      $('#resource-name').toggleClass('hidden');
+      $('#resource-link').toggleClass('hidden');
+
+      // Show back button
+      $('#press-back').toggleClass('hidden');
+
+      // Move dot to next index
+      $('#dot-2').toggleClass('indexAt');
+
+      formState++; // move formState to next index
+    }
 
   } else if(formState == 2) {
 
-    // Toggle new question
-    $('#resource-link').toggleClass('hidden');
-    $('#resource-desc').toggleClass('hidden');
+    // check if the response form is empty
+    if(!$('#resource-link-response').val()) {
 
-    // Move dot to next index
-    $('#dot-3').toggleClass('indexAt');
+      $('.entry-box').addClass('errorState');
+      console.log('The form is empty!');
 
-    $('#press-next').text('Submit'); // change the button text
+    } else {
 
-    formState++;// move formState to next index
+      console.log('The form is not empty')
+
+      // // check if the response form contains 'https://'
+      if(isValidUrl($('#resource-link-response').val())) {
+
+        console.log('It is a link');
+        $('.entry-box').removeClass('errorState'); // remove the errorState
+
+        // Toggle new question
+        $('#resource-link').toggleClass('hidden');
+        $('#resource-desc').toggleClass('hidden');
+
+        // Move dot to next index
+        $('#dot-3').toggleClass('indexAt');
+
+        $('#press-next').text('Submit'); // change the button text
+
+        formState++;// move formState to next index
+
+      } else {
+        console.log('It is not a link');
+        $('.entry-box').addClass('errorState');
+      }
+    }
 
   } else if(formState == 3) {
 
-    // Toggle new question
-    $('#resource-desc').toggleClass('hidden');
-    $('#thank-you').toggleClass('hidden');
-    $('#press-next').text('Submit Another'); // change the button text
+    // Check if the response form is empty
+    if(!$('#resource-desc-response').val()) {
 
-    // Hide back button
-    $('#press-back').toggleClass('hidden');
+      $('#resource-desc-response').addClass('errorState2');
+      console.log('The form is empty!');
 
-    // Grab the response from questions 1 2 and 3 and upload to firebase
-    var resName = document.getElementById('resource-name-response').value;
-    var resLink = document.getElementById('resource-link-response').value;
-    var resDesc = document.getElementById('resource-desc-response').value;
+      // if the response is not empty
+    } else {
 
-    writeToFirebase(resName, resLink, resDesc);
+      console.log('It is not empty');
+      $('#resource-desc-response').removeClass('errorState2'); // remove the errorState
 
-    formState++;// move formState to next index
+      // Toggle new question
+      $('#resource-desc').toggleClass('hidden');
+      $('#thank-you').toggleClass('hidden');
+      $('#press-next').text('Submit Another'); // change the button text
+
+      // Hide back button
+      $('#press-back').toggleClass('hidden');
+
+      // Grab the response from questions 1 2 and 3 and upload to firebase
+      var resName = document.getElementById('resource-name-response').value;
+      var resLink = document.getElementById('resource-link-response').value;
+      var resDesc = document.getElementById('resource-desc-response').value;
+
+      writeToFirebase(resName, resLink, resDesc);
+
+      formState++;// move formState to next index
+
+    }
+
+
   } else if (formState == 4) {
 
     // Clear all form responses
