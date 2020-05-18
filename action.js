@@ -93,10 +93,55 @@ function isValidUrl(string) {
   } catch (_) {
     return false;
   }
-
   return true;
 };
 
+// remove error class
+$('.fill-out').on('click', function() {
+
+  if(!$('#resource-name-response').val()) {
+    // error state signifer
+    $('#name-error').removeClass('slide-down');
+  }
+
+  if(!$('#resource-link-response').val() || !isValidUrl($('#resource-link-response').val())) {
+
+    // error state signifer
+    $('#link-error').removeClass('slide-down');
+  }
+
+  if($('.entry-box').hasClass('errorState2')) {
+    $('.entry-box').removeClass('errorState2');
+  }
+})
+
+// removeError;
+
+// textfield char counter
+function countChar(val) {
+  var len = val.value.length;
+  if (len >= 751) {
+    val.value = val.value.substring(0, 751);
+    $('#desc-counter').css("color", "red");
+    $('#desc-counter').css("background-color", "#ffd4d4");
+  } else {
+    $('#desc-counter').text(len + "/750");
+    $('#desc-counter').css("color", "#FFF");
+    $('#desc-counter').css("background-color", "#000");
+  }
+};
+
+// press enter to click next
+$('#resource-name-response, #resource-link-response').keydown(function(event) {
+  if(event.which == 13) {
+    event.preventDefault();
+    $('#press-next').click();
+    console.log('pressed enter');
+  }
+})
+
+
+// next button
 $('#press-next').on('click', function() {
 
   console.log("formState is at " + formState);
@@ -110,6 +155,9 @@ $('#press-next').on('click', function() {
 
       $('.entry-box').addClass('errorState');
       console.log('The form is empty!');
+
+      // error state signifer
+      $('#name-error').addClass('slide-down');
 
       // if the response is not empty
     } else {
@@ -138,6 +186,9 @@ $('#press-next').on('click', function() {
       $('.entry-box').addClass('errorState');
       console.log('The form is empty!');
 
+      // error state signifer
+      $('#link-error').addClass('slide-down');
+
     } else {
 
       console.log('The form is not empty')
@@ -162,6 +213,9 @@ $('#press-next').on('click', function() {
       } else {
         console.log('It is not a link');
         $('.entry-box').addClass('errorState');
+
+        // error state signifer
+        $('#link-error').addClass('slide-down');
       }
     }
 

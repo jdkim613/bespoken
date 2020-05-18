@@ -1,7 +1,7 @@
 <html>
   <head>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://use.typekit.net/hcg3aaj.css">
+    <link rel="stylesheet" href="https://use.typekit.net/etn1bhp.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   </head>
@@ -60,10 +60,10 @@
           <div id="resource-name" class="fill-out">
             <!-- Manipulate #resource-name div for next form entries -->
             <h1 class="form-question">I'm plugged into</h1>
-            <h2 class="form-instruction"></h2>
             <form>
               <input id="resource-name-response" class="entry-box" type="text" placeholder="Say something cool"></input>
             </form>
+            <h2 id="name-error" class="form-error">You forgot to say something amazing</h2>
           </div>
 
           <div id="resource-link" class="fill-out hidden">
@@ -73,6 +73,7 @@
             <form>
               <input id="resource-link-response" class="entry-box" type="text" placeholder="https://"></input>
             </form>
+            <h2 id="link-error" class="form-error">Write a link starting with "https://"</h2>
           </div>
 
           <div id="resource-desc" class="fill-out hidden">
@@ -80,15 +81,16 @@
             <h1 class="form-question">I love this resource because</h1>
             <h2 class="form-instruction"></h2>
             <form>
-              <textarea id="resource-desc-response" class="entry-box" rows="4" placeholder="Why I love"></textarea>
+              <textarea id="resource-desc-response" class="entry-box" rows="4" placeholder="Why I love" onkeyup="countChar(this)"></textarea>
             </form>
+            <h2 id="desc-counter">0/750</h2>
+            <h2 id="desc-error" class="form-error">Tell us why you love it</h2>
           </div>
 
           <div id="thank-you" class="submitted hidden">
             <h1 class="form-question">Thank You for submitting ❤️</h1>
             <h2 class="form-instruction">Make sure to click view to check out what other people wrote us!</h2>
           </div>
-
         </div>
 
         <div class="move-buttons">
