@@ -61,6 +61,37 @@ function updateLikes() {
   });
 }
 
+function removeLikes() {
+  var fbRef = database.ref("plug/" + currentKey);
+  var info = fbRef.set({
+    name: allData[currentKey].name,
+    link: allData[currentKey].link,
+    desc: allData[currentKey].desc,
+    likes: allData[currentKey].likes - 1,
+  });
+}
+
+// Like animation + like count
+$(function() {
+  $( "i" ).click(function() {
+    $( "i,#like-feedback" ).toggleClass( "press", 1000 );
+
+    // check if the like-icon is pressed
+    if(!$('#like-icon').hasClass('press')) {
+
+      // if not, add a like
+      updateLikes();
+      console.log('like added')
+    } else {
+
+      // else the like is already pressed, so remove like
+      removeLikes();
+      console.log('like removed')
+    }
+
+  });
+});
+
 function getRandSnapshot() {
   var keys = Object.keys(allData);
   var key = keys[Math.floor(Math.random() * Math.floor(keys.length))]
@@ -70,6 +101,12 @@ function getRandSnapshot() {
 }
 
 function writeFromFirebase () {
+  // everytime the button is clicked if a like button is pressed
+  if($('#like-icon' && '#like-feedback').hasClass('press')) {
+    $('#like-icon').removeClass('press');
+    $('#like-feedback').removeClass('press');
+  }
+
   var snapshot = allData[getRandSnapshot()];
   console.log(snapshot);
   document.getElementById("color-block").innerHTML = snapshot.name;
@@ -78,8 +115,9 @@ function writeFromFirebase () {
   // document.getElementById("img1").src = plug.img1;
   // document.getElementById("img2").src = plug.img2;
   // document.getElementById("img3").src = plug.img3;
-  // document.getElementById("like-count").innerHTML = snapshot.likes; // deleted like feature
+  document.getElementById("like-number").innerHTML = snapshot.likes; // deleted like feature
   // replaceMainImg(plug.img1);
+
 
 }
 
