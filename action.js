@@ -59,6 +59,7 @@ function updateLikes() {
     desc: allData[currentKey].desc,
     likes: allData[currentKey].likes + 1,
   });
+  document.getElementById("like-number").innerHTML = allData[currentKey].likes;
 }
 
 function removeLikes() {
@@ -69,6 +70,7 @@ function removeLikes() {
     desc: allData[currentKey].desc,
     likes: allData[currentKey].likes - 1,
   });
+  document.getElementById("like-number").innerHTML = allData[currentKey].likes;
 }
 
 // Like animation + like count
@@ -80,13 +82,11 @@ $(function() {
     if(!$('#like-icon').hasClass('press')) {
 
       // if not, add a like
-      updateLikes();
-      console.log('like added')
+      removeLikes();
     } else {
 
       // else the like is already pressed, so remove like
-      removeLikes();
-      console.log('like removed')
+      updateLikes();
     }
 
   });
@@ -96,7 +96,6 @@ function getRandSnapshot() {
   var keys = Object.keys(allData);
   var key = keys[Math.floor(Math.random() * Math.floor(keys.length))]
   currentKey = key;
-  console.log(key);
   return key;
 }
 
