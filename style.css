@@ -44,6 +44,11 @@
   border: 2px solid rgba(255,30,30,0.8) !important;
 }
 
+a {
+  display: block;
+  /* border: 1px dashed blue; */
+}
+
 a:link {
   color: #000;
   text-decoration: none;
