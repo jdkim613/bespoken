@@ -17,6 +17,7 @@ firebase.initializeApp(firebaseConfig);
 
 // Get a reference to the database service
 var database = firebase.database();
+var currentKey;
 
 
 //preloads ALL of the firebase information
@@ -49,9 +50,21 @@ function writeToFirebase(name, link, desc) {
   });
 }
 
+//not being used yet, but once the like button has been implement it, reference this in the html
+function updateLikes() {
+  var fbRef = database.ref("plug/" + currentKey);
+  var info = fbRef.set({
+    name: allData[currentKey].name,
+    link: allData[currentKey].link,
+    desc: allData[currentKey].desc,
+    likes: allData[currentKey].likes + 1,
+  });
+}
+
 function getRandSnapshot() {
   var keys = Object.keys(allData);
   var key = keys[Math.floor(Math.random() * Math.floor(keys.length))]
+  currentKey = key;
   console.log(key);
   return key;
 }
