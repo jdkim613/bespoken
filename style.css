@@ -142,6 +142,7 @@ body {
 
 .resource-header {
   margin-bottom: 24px;
+  max-width: 464px;
 }
 
 #color-block {
