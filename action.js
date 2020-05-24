@@ -31,16 +31,14 @@ ref.on("value", function(snapshot) {
   console.log("Error: " + error.code);
 });
 
-var currentdate = new Date();
-var datetime = currentdate.getDate() + "" +
-                + (currentdate.getMonth()+1) + "" +
-                + currentdate.getFullYear() + "@"
-                + currentdate.getHours() + ":"
-                + currentdate.getMinutes() + ":"
-                + currentdate.getSeconds();
-
-
 function writeToFirebase(name, link, desc) {
+  var currentdate = new Date();
+  var datetime = currentdate.getDate() + "" +
+                  + (currentdate.getMonth()+1) + "" +
+                  + currentdate.getFullYear() + "@"
+                  + currentdate.getHours() + ":"
+                  + currentdate.getMinutes() + ":"
+                  + currentdate.getSeconds();
   var fbRef = database.ref("plug/" + datetime);//put in name of project
   var info = fbRef.set({
     name: name,
