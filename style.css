@@ -530,7 +530,7 @@ textarea:focus {
 
   /* Web Containers */
   body {
-    overflow: auto;
+    overflow: scroll;
   }
 
   .select-view {
