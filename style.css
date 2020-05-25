@@ -84,7 +84,6 @@ body {
   justify-content: center;
   align-items: center;
   width: 100%;
-  overflow: hidden;
   /* border: 1px red dashed; */
 }
 
@@ -514,7 +513,9 @@ textarea:focus {
 
 /* Website View */
 @media screen and (min-width: 480px) {
-
+  html {
+    overflow: scroll;
+  }
   /* Web Type System */
   h1 {
     font-size: 36px;
@@ -530,7 +531,7 @@ textarea:focus {
 
   /* Web Containers */
   body {
-    overflow: scroll;
+    overflow: hidden;
   }
 
   .select-view {
